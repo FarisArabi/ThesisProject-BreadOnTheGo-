@@ -11,6 +11,25 @@ db.once('open', function () {
   console.log('mongoose connected successfully')
 })
 
+var testSchema = mongoose.Schema({
+  userName: String,
+  email: {
+    type: String,
+    trim: true
+  },
+  password: {
+    type: String
+  },
+  phoneNumber: Number,
+  latitude: Number,
+  longtitude: Number,
+  typeOfPayment: String,
+  image: ''
+
+})
+
+var Test = mongoose.model('Test', testSchema)
+
 /// ////////////////////// User's Schema /////////////////////////
 
 var userSchema = mongoose.Schema({
