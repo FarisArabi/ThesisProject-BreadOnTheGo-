@@ -17,6 +17,8 @@ import OrderList from './components/OrderList.jsx'
 import ProfileB from './components/ProfileB.jsx'
 import Rating from './components/Rating.jsx'
 import Logout from './components/Logout.jsx'
+import CardCom from './components/CardCom.jsx';
+import ABitofLove from './components/ABitofLove.jsx';
 
 class App extends React.Component {
   constructor (props) {

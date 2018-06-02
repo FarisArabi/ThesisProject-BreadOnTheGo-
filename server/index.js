@@ -27,6 +27,9 @@ app.use(session({
 /// //////////////////////////////////////////////////////////
 
 // it should be the same in the ajax call
+
+app.post('/alo',handler.payment)
+app.get('/alo',handler.payment)
 app.post('/signupuser', handler.SignUpUser)
 app.post('/signupbakery', handler.SignUpBakery)
 app.post('/signin', handler.SignIn)
@@ -57,9 +60,10 @@ app.get('/*', (req, res) => {
   res.sendFile(path.resolve(path.join(__dirname, '/../react-client/dist/index.html')))
 })
 /// //////////////////////////
-app.listen(3000, function () {
-  console.log('listening on port 3000!')
-})
+var port = 3000
+app.listen(process.env.PORT || port , function () {
+	console.log("server is listening "+ port +" Port")
+});
 
 /// //////////////////////////////////////////////////////////
 // const PORT = process.env.PORT || 3000
