@@ -175,7 +175,7 @@ exports.retrieveBakereis = function (req, res) {
 }
 /// ////////retrive function for Bakery profile  //////////
 exports.retrieveOneBakery = function (req, res) {
-  var query = {id: req.params.id }
+  var query = req.session.bakery
   console.log(query, 'here is sessionB')
   db.Bakery.findOne(query, function (err, response) {
     if (err) {
@@ -393,7 +393,7 @@ exports.logout = function (req, res) {
   })
 }
 
-//////////////////////// this function to update the value(balance) of payment 
+//////////////////////// this function to update the value(balance) of payment
 exports.payment = function (req, res) {
           var price=req.body.price
           var value=req.body.value
@@ -403,7 +403,7 @@ exports.payment = function (req, res) {
                 function(err,data){
                     if(err){
                        throw err
-                    } 
+                    }
                     if(parseInt(price)>parseInt(value)){
                         res.sendStatus(404)
                     }
@@ -413,8 +413,7 @@ exports.payment = function (req, res) {
                         res.send(valuee.toString())
                     }
 
-               })  
+               })
 
 }
 //////////////////////////////////////////////////////////
-
